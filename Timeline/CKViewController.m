@@ -7,6 +7,7 @@
 //
 
 #import "CKViewController.h"
+#import "CKTimelineLayout.h"
 
 @interface CKViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -21,6 +22,7 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.collectionViewLayout = [[CKTimelineLayout alloc] init];
 }
 
 #pragma mark -

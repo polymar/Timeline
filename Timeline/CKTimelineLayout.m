@@ -30,6 +30,8 @@
 @property(nonatomic, assign) CGFloat sideCellsHeight;
 @property(nonatomic, assign) CGFloat rightCellX;
 
+@property(nonatomic, retain) NSMutableArray* layoutArray;
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -38,6 +40,13 @@
 
 - (void) prepareLayout
 {
+    [super prepareLayout];
+    
+    if (!self.layoutArray)
+    {
+        self.layoutArray = [[NSMutableArray alloc] init];
+    }
+    
     self.timelineBarHeight = 40;
     self.timelineBarWidth = 80;
     
@@ -47,6 +56,51 @@
     self.timelineFillingHeight = self.sideCellsHeight - self.timelineBarHeight;
     self.timelineBarX = (collectionRect.size.width / 2.f) - (self.timelineBarWidth / 2.f);
     self.rightCellX = self.timelineBarX + self.timelineBarWidth;
+    
+    for (int section = 0; section < self.collectionView.numberOfSections; section++) {
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        for (int item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
+            CGRect itemFrame = CGRectZero;
+            if (item == 0) {
+                itemFrame.origin.x = 0;
+                itemFrame.size = CGSizeMake(self.sideCellsWidth, self.sideCellsHeight);
+            } else if (item == 1) {
+                itemFrame.origin.x = self.timelineBarX;
+                itemFrame.size = CGSizeMake(self.timelineBarWidth, self.sideCellsHeight);
+            } else {
+                itemFrame.origin.x = self.rightCellX;
+                itemFrame.size = CGSizeMake(self.sideCellsWidth, self.sideCellsHeight);
+            }
+            itemFrame.origin.y = section * self.sideCellsHeight;
+            
+            [tempArray addObject:[NSValue valueWithCGRect:itemFrame]];
+        }
+        [self.layoutArray addObject:tempArray];
+    }
+}
+
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    NSMutableArray *attributes = [NSMutableArray array];
+    for (int section = 0; section < self.collectionView.numberOfSections; section++) {
+        NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+        for (int item = 0; item < itemCount; item++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
+            [attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
+        }
+    }
+    return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    
+    CGRect itemFrame = [[[self.layoutArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] CGRectValue];
+    attributes.size = itemFrame.size;
+    attributes.center = CGPointMake(CGRectGetMidX(itemFrame), CGRectGetMidY(itemFrame));
+    
+    return attributes;
 }
 
 @end
