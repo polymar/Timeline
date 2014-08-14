@@ -157,29 +157,6 @@
                 [attributes addObject:itemAttr];
             }
         }
-        
-        
-//        NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
-//        for (int item = 0; item < itemCount; item++) {
-//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-//            UICollectionViewLayoutAttributes* itemAttr = [self layoutAttributesForItemAtIndexPath:indexPath];
-//            
-//            
-//            [attributes addObject:itemAttr];
-//            //checking that ALL the items are ending outside the bounding rect
-//            if ((itemAttr.center.y + itemAttr.size.height / 2) > (rect.origin.y + rect.size.height))
-//            {
-//                done = YES;
-//            }
-//            else
-//            {
-//                done = NO;
-//            }
-//        }
-//        if (done)
-//        {
-//            break;
-//        }
     }
     NSLog(@"Attributes: %@", attributes);
     return attributes;
