@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CKTimelineEventIndicator" id="eKP-w4-dVI" customClass="CKTimelineEventIndicatorCell">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeO-gi-qmY">
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="dld-5V-kQ2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtV-tw-KyA">
+                        <rect key="frame" x="0.0" y="30" width="60" height="130"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="IeO-gi-qmY" firstAttribute="top" secondItem="eKP-w4-dVI" secondAttribute="top" id="14o-Cp-ffb"/>
+                <constraint firstAttribute="bottom" secondItem="rtV-tw-KyA" secondAttribute="bottom" id="1SA-8g-1MA"/>
+                <constraint firstAttribute="trailing" secondItem="rtV-tw-KyA" secondAttribute="trailing" id="4T4-Is-UuP"/>
+                <constraint firstItem="rtV-tw-KyA" firstAttribute="leading" secondItem="eKP-w4-dVI" secondAttribute="leading" id="6Vf-Wz-zVu"/>
+                <constraint firstAttribute="trailing" secondItem="IeO-gi-qmY" secondAttribute="trailing" id="BS4-pV-UHv"/>
+                <constraint firstItem="IeO-gi-qmY" firstAttribute="leading" secondItem="eKP-w4-dVI" secondAttribute="leading" id="rj2-Zj-QBa"/>
+                <constraint firstItem="rtV-tw-KyA" firstAttribute="top" secondItem="IeO-gi-qmY" secondAttribute="bottom" id="tAf-a3-gUc"/>
+            </constraints>
+            <connections>
+                <outlet property="eventIndicatorContainerView" destination="rtV-tw-KyA" id="418-qU-Pp1"/>
+                <outlet property="eventTimeLabel" destination="IeO-gi-qmY" id="DR9-Lz-M1j"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

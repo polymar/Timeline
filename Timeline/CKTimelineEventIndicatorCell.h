@@ -6,11 +6,11 @@
 // Proprietary and Confidential - Not for Distribution
 // Written by Code Krafters B.V.
 //
-// CKTimelineLayout.h
+// CKTimelineEventIndicatorCell.h
 //
 // AUTHOR IDENTITY:
 //		Roberto Gamboni		13/08/14
-//    
+//
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +24,9 @@
 /**
  *
  */
-@interface CKTimelineLayout : UICollectionViewFlowLayout
+@interface CKTimelineEventIndicatorCell : UICollectionViewCell
+
+@property(nonatomic, weak) IBOutlet UILabel*    eventTimeLabel;
+@property(nonatomic, weak) IBOutlet UIView*     eventIndicatorContainerView;
 
 @end
-

@@ -6,11 +6,11 @@
 // Proprietary and Confidential - Not for Distribution
 // Written by Code Krafters B.V.
 //
-// CKTimelineLayout.h
+// CKTimelineLocationCell.h
 //
 // AUTHOR IDENTITY:
 //		Roberto Gamboni		13/08/14
-//    
+//
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +24,8 @@
 /**
  *
  */
-@interface CKTimelineLayout : UICollectionViewFlowLayout
+@interface CKTimelineLocationCell : UICollectionViewCell
+
+@property(nonatomic, weak) IBOutlet UILabel* locationLabel;
 
 @end
-

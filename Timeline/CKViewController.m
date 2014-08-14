@@ -8,8 +8,12 @@
 
 #import "CKViewController.h"
 #import "CKTimelineLayout.h"
+#import "CKTimelineLocationCell.h"
+#import "CKTimelineEventIndicatorCell.h"
 
 @interface CKViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property(nonatomic, strong) UICollectionViewLayout* timelineLayout;
 
 @end
 
@@ -18,11 +22,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self.collectionView registerNib:[UINib nibWithNibName:@"" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
+    self.timelineLayout = [[CKTimelineLayout alloc] init];
+    
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CKTimelineLocationCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CKTimelineLocation"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CKTimelineEventIndicatorCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CKTimelineEventIndicator"];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    self.collectionView.collectionViewLayout = self.timelineLayout;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.collectionViewLayout = [[CKTimelineLayout alloc] init];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.timelineLayout invalidateLayout];
 }
 
 #pragma mark -
@@ -33,19 +47,44 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.backgroundColor = ((indexPath.section % 2) == 0) ? [UIColor blueColor] : [UIColor redColor];
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
+    UICollectionViewCell *cell = nil;
+    
+    if (indexPath.row == 0)
+    {
+        //location
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CKTimelineLocation" forIndexPath:indexPath];
+        CKTimelineLocationCell* locationCell = (CKTimelineLocationCell*) cell;
+        locationCell.locationLabel.text = [NSString stringWithFormat:@"Location %d", indexPath.section];
+        cell.backgroundColor = [UIColor greenColor];
+        cell.alpha = 0.1 * (indexPath.section + 1);
+    } else if (indexPath.row == 1)
+    {
+        //timeline indicators
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CKTimelineEventIndicator" forIndexPath:indexPath];
+        CKTimelineEventIndicatorCell* indicatorCell = (CKTimelineEventIndicatorCell*) cell;
+        indicatorCell.eventTimeLabel.text = [NSString stringWithFormat:@"20:%@", [NSString stringWithFormat:@"%d", 10 + (indexPath.section + 1) * 3]];
+    } else
+    {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+        //details
+        cell.backgroundColor = [UIColor blueColor];
+        cell.alpha = 0.1 * (indexPath.section + 1);
+    }
+    
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 3;
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return 10;
 }
 
 @end

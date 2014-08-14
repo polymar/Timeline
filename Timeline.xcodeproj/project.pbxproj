@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		309F9847199C9EF30063714B /* CKTimelineLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 309F9846199C9EF30063714B /* CKTimelineLocationCell.m */; };
+		309F9849199C9F4D0063714B /* CKTimelineLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 309F9848199C9F4D0063714B /* CKTimelineLocationCell.xib */; };
+		309F984C199CAE7D0063714B /* CKTimelineEventIndicatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 309F984B199CAE7D0063714B /* CKTimelineEventIndicatorCell.m */; };
+		309F9850199CAF110063714B /* CKTimelineEventIndicatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 309F984F199CAF110063714B /* CKTimelineEventIndicatorCell.xib */; };
 		5C623BD0199BC06800CF5694 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C623BCF199BC06800CF5694 /* Foundation.framework */; };
 		5C623BD2199BC06800CF5694 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C623BD1199BC06800CF5694 /* CoreGraphics.framework */; };
 		5C623BD4199BC06800CF5694 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C623BD3199BC06800CF5694 /* UIKit.framework */; };
@@ -36,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		309F9845199C9EF30063714B /* CKTimelineLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTimelineLocationCell.h; sourceTree = "<group>"; };
+		309F9846199C9EF30063714B /* CKTimelineLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTimelineLocationCell.m; sourceTree = "<group>"; };
+		309F9848199C9F4D0063714B /* CKTimelineLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKTimelineLocationCell.xib; sourceTree = "<group>"; };
+		309F984A199CAE7D0063714B /* CKTimelineEventIndicatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTimelineEventIndicatorCell.h; sourceTree = "<group>"; };
+		309F984B199CAE7D0063714B /* CKTimelineEventIndicatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTimelineEventIndicatorCell.m; sourceTree = "<group>"; };
+		309F984F199CAF110063714B /* CKTimelineEventIndicatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKTimelineEventIndicatorCell.xib; sourceTree = "<group>"; };
 		5C623BCC199BC06800CF5694 /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C623BCF199BC06800CF5694 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C623BD1199BC06800CF5694 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +138,12 @@
 				5CB8E3DB199BFBA600D95C92 /* CKViewController.xib */,
 				5CB8E3DD199BFC6B00D95C92 /* CKTimelineLayout.h */,
 				5CB8E3DE199BFC6B00D95C92 /* CKTimelineLayout.m */,
+				309F9845199C9EF30063714B /* CKTimelineLocationCell.h */,
+				309F9846199C9EF30063714B /* CKTimelineLocationCell.m */,
+				309F9848199C9F4D0063714B /* CKTimelineLocationCell.xib */,
+				309F984A199CAE7D0063714B /* CKTimelineEventIndicatorCell.h */,
+				309F984B199CAE7D0063714B /* CKTimelineEventIndicatorCell.m */,
+				309F984F199CAF110063714B /* CKTimelineEventIndicatorCell.xib */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -239,7 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C623BE8199BC06800CF5694 /* Images.xcassets in Resources */,
+				309F9849199C9F4D0063714B /* CKTimelineLocationCell.xib in Resources */,
 				5CB8E3DC199BFBA600D95C92 /* CKViewController.xib in Resources */,
+				309F9850199CAF110063714B /* CKTimelineEventIndicatorCell.xib in Resources */,
 				5C623BDA199BC06800CF5694 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB8E3DF199BFC6B00D95C92 /* CKTimelineLayout.m in Sources */,
+				309F984C199CAE7D0063714B /* CKTimelineEventIndicatorCell.m in Sources */,
 				5C623BE0199BC06800CF5694 /* CKAppDelegate.m in Sources */,
+				309F9847199C9EF30063714B /* CKTimelineLocationCell.m in Sources */,
 				5C623BDC199BC06800CF5694 /* main.m in Sources */,
 				5C623BE6199BC06800CF5694 /* CKViewController.m in Sources */,
 			);
